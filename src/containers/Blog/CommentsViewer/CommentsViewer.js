@@ -45,12 +45,12 @@ export default function CommentsViewer(props) {
     const [offsetTop, setOffsetTop] = useState(0);
     const commands = [
         {
-            command: 'close',
+            command: 'close.',
             callback: () => props.hideShowComment(),
             description: 'Closes this modal.'
         },
         {
-            command: 'scroll comments down',
+            command: 'scroll comments down.',
             callback: () => {
                 setOffsetTop(prevOffsetTop => {
                     document.querySelector("#selector-element").scrollTo({top: prevOffsetTop + 320, behavior: "smooth"})
@@ -59,7 +59,7 @@ export default function CommentsViewer(props) {
             }
         },
         {
-            command: 'scroll comments up',
+            command: 'scroll comments up.',
             callback: () => {
                 setOffsetTop(prevOffsetTop => {
                     document.querySelector("#selector-element").scrollTo({top: prevOffsetTop - 320, behavior: "smooth"})
