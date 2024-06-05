@@ -25,7 +25,7 @@ const Articles = (props) => {
   // Registered Voice Commands for this component
   const commands = [
     {
-      command: 'create new article.',
+      command: 'create new article',
       callback: () => props.history.push('/new-article'),
       description: 'Opens the text editor to create a new article'
     },
@@ -34,11 +34,11 @@ const Articles = (props) => {
       callback: (articleTitle) => showBlogByVoiceHandler(articleTitle),
       description: 'Opens an article.'
     },
-    AuthService.getCurrentUser().isAdmin && {
-      command: 'delete *.',
-      callback: (articleTitle) => deleteBlogForAdmin(articleTitle),
-      description: 'Delete an article'
-    },
+    // AuthService.getCurrentUser().isAdmin && {
+    //   command: 'delete *.',
+    //   callback: (articleTitle) => deleteBlogForAdmin(articleTitle),
+    //   description: 'Delete an article'
+    // },
     {
       command: 'open all articles.',
       callback: () => {},
@@ -94,11 +94,11 @@ const Articles = (props) => {
     }
   ];
 
-  useEffect(() => {
-    ttsSpeak(
-      'Welcome to the Article Directory. What would you like to do? Say help and I will guide you through the commands.'
-    );
-  }, []);
+  // useEffect(() => {
+  //   ttsSpeak(
+  //     'Welcome to the Article Directory. What would you like to do? Say help and I will guide you through the commands.'
+  //   );
+  // }, []);
 
   const { Transcript } = useSpeechRecognition({ commands });
 
@@ -113,7 +113,7 @@ const Articles = (props) => {
     } else if (props.buttonName === 'my-articles') {
       url = `http://localhost:8000/get-all-user-articles/${AuthService.getCurrentUser().userId}`;
     }
-
+console.log(url);
     axios
       .get(url)
       .then((result) => {
